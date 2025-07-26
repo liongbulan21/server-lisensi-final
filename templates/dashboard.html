@@ -35,29 +35,29 @@
         <h2>Daftar Lisensi</h2>
         <table>
             <thead>
-				<tr>
-					<th>Kunci Lisensi</th>
-					<th>Nama Pelanggan</th>
-					<th>Device ID Terikat</th>
-					<th>Aksi</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for license in licenses %}
-				<tr>
-					<td>{{ license.license_key }}</td>
-					<td>{{ license.customer_name }}</td>
-					<td>{{ license.device_id or 'Belum aktif' }}</td>
-					<td>
-						<a href="/delete/{{ license.license_key }}" class="btn-delete" onclick="return confirm('Anda yakin ingin menghapus lisensi ini?')">Hapus</a>
-					</td>
-				</tr>
-				{% else %}
-				<tr>
-					<td colspan="4" style="text-align:center;">Belum ada lisensi.</td>
-				</tr>
-				{% endfor %}
-			</tbody>
+	         <tr>
+		     <th>Kunci Lisensi</th>
+		     <th>Nama Pelanggan</th>
+		     <th>Device ID Terikat</th>
+		     <th>Aksi</th>
+		</tr>
+		  </thead>
+		  <tbody>
+		     {% for license in licenses %}
+		     <tr>
+			<td>{{ license.license_key }}</td>
+			<td>{{ license.customer_name }}</td>
+			<td>{{ license.device_id or 'Belum aktif' }}</td>
+			<td>
+			     <a href="/delete/{{ license.license_key }}" class="btn-delete" onclick="return confirm('Anda yakin ingin menghapus lisensi ini?')">Hapus</a>
+			</td>
+			</tr>
+			{% else %}
+		   <tr>
+		        <td colspan="4" style="text-align:center;">Belum ada lisensi.</td>
+	           </tr>
+		   {% endfor %}
+	  </tbody>		
         </table>
     </div>
 </body>
