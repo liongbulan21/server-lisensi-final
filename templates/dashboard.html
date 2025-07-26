@@ -40,16 +40,14 @@
                 <th>Device ID Terikat</th>
                 <th>Aksi</th>
             </tr>
-            {% for key, value in licenses.items() %}
-            <tr>
-                <td>{{ key }}</td>
-                <td>{{ license.customer_name }}</td>
-                <td>{{ license.device_id or 'Belum aktif' }}</td>
-                <td>
-                    <a href="/delete/{{ key }}" class="btn-delete" onclick="return confirm('Anda yakin ingin menghapus lisensi ini?')">Hapus</a>
-                </td>
-            </tr>
-            {% else %}
+            {% for license in licenses %}
+                <tr>
+                    <td>{{ license.license_key }}</td>
+                    <td>{{ license.customer_name }}</td>
+                    <td>{{ license.device_id or 'Belum aktif' }}</td>
+                    <td><a href="/delete/{{ license.license_key }}">...</a></td>
+                </tr>
+                {% endfor %}
             <tr>
                 <td colspan="4" style="text-align:center;">Belum ada lisensi.</td>
             </tr>
